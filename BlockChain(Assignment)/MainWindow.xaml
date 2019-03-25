@@ -1,0 +1,85 @@
+﻿<Window x:Class="BlockChainAssignment.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BlockChainAssignment"
+        mc:Ignorable="d"
+        Title="BlockChain Demo" Height="407" Width="394.5">
+    <Window.Resources>
+        <local:IsSignedConverter x:Key="Converter"/>
+    </Window.Resources>
+    <DockPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <StackPanel>
+            <TabControl Name="BlockTabs" ItemsSource="{Binding BlockChain}" Width="378" Height="335">
+                <TabControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Width="10" FontSize="20" Text="{Binding ID}" Foreground="{Binding Path=IsSigned, Converter={StaticResource Converter}, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+                <TabControl.ContentTemplate>
+                    <DataTemplate>
+                        <Grid Background="{Binding Path=IsSigned, Converter={StaticResource Converter}, UpdateSourceTrigger=PropertyChanged}">
+                            <!--#region Styles-->
+                            <Grid.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderBrush" Value="Black"/>
+                                    <Setter Property="BorderThickness" Value="1"/>
+                                    <Setter Property="Background" Value="White"/>
+                                </Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="BorderBrush" Value="Black"/>
+                                    <Setter Property="BorderThickness" Value="1"/>
+                                    <Setter Property="Background" Value="White"/>
+                                </Style>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="BorderBrush" Value="Black"/>
+                                    <Setter Property="BorderThickness" Value="1"/>
+                                    <Setter Property="Background" Value="White"/>
+                                </Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="BorderBrush" Value="Black"/>
+                                    <Setter Property="BorderThickness" Value="1"/>
+                                </Style>
+                            </Grid.Resources>
+                            <!--#endregion-->
+                            <!--#region Tab Contents-->
+                            <StackPanel Width="351" Height="250">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Width="75" Content="Prev Hash:" Height="25"/>
+                                    <Border Height="25" Width="275">
+                                        <TextBlock Name="PrevHash" Text="{Binding PrevHash}"/>
+                                    </Border>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Height="25" Width="75" Content="Nonce:"/>
+                                    <Border Height="25" Width="50">
+                                        <TextBlock Text="{Binding Nonce}" TextAlignment="Center"/>
+                                    </Border>
+                                    <Button ToolTip="Mines the nonce to sign the hash." Name="Mine" Click="MineTabBTN" Width="225" Content="Mine"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Width="75" Content="Data:"/>
+                                    <ScrollViewer>
+                                        <TextBox ToolTip="The data that you wish to hash." Width="275" Height="150" TextWrapping="Wrap" AcceptsReturn="True" Name="Data" Text="{Binding Data, UpdateSourceTrigger = PropertyChanged}" SpellCheck.IsEnabled="True"/>
+                                    </ScrollViewer>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Height="25" Width="75" Content="Hash:"/>
+                                    <Border Height="25" Width="275">
+                                        <TextBlock Name="Hash" Text="{Binding Hash}"/>
+                                    </Border>
+                                </StackPanel>
+                                <Button Content="Help" Click="HelpBTN"/>
+                            </StackPanel>
+                            <!--#endregion-->
+                        </Grid>
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
+            <!--#region Mine All Button-->
+            <Button Click="MineAllBTN" Width="351" Height="25" Content="Mine All" ToolTip="Use this button to mine all 5 Blocks."/>
+            <!--#endregion-->
+        </StackPanel>
+    </DockPanel>
+</Window>

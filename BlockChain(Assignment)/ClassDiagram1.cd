@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Comment CommentText="The BlockList overides the add function to add a block but also assigns the correct information to the correct properties.">
+    <Position X="5.135" Y="3.865" Height="1.292" Width="1.283" />
+  </Comment>
+  <Comment CommentText="Block is a type that defines all the necessary properties for a blockchain.">
+    <Position X="8.812" Y="1.542" Height="0.667" Width="1.763" />
+  </Comment>
+  <Comment CommentText="HashConverter is used to convert the data ineach block into a hash.">
+    <Position X="13.26" Y="6.948" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="IsSignedConverter uses the IsSigned boolean  to decide the brush colour for the binding, based on its value.">
+    <Position X="6.406" Y="7.354" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="MainWindow initializes the code, it also sets some UI properties during Runtime.">
+    <Position X="4.417" Y="1.094" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="I made block a class as classes can be used as types, this makes it easier to create multpile instances of this class.">
+    <Position X="11.375" Y="0.583" Height="0.813" Width="1.96" />
+  </Comment>
+  <Class Name="BlockChainAssignment.Block" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="0.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAIICAAAAAIYgKACCAAAAEAAgAAAABAAAAAQAAACCgA=</HashCode>
+      <FileName>Block.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BlockChainAssignment.BlockList">
+    <Position X="0.5" Y="3.75" Width="4.5" />
+    <AssociationLine Name="BlockChain" Type="BlockChainAssignment.Block" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="5.238" />
+        <Point X="2.75" Y="6.453" />
+        <Point X="9.938" Y="6.453" />
+        <Point X="9.938" Y="5.843" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="2.266" Y="0.36" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Block.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="BlockChain" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BlockChainAssignment.HashConverter">
+    <Position X="10" Y="6.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAEAA=</HashCode>
+      <FileName>HashConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlockChainAssignment.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAEACAAAABAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="theBlockList" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BlockChainAssignment.IsSignedConverter" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="7" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
